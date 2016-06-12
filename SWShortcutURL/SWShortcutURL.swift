@@ -48,14 +48,25 @@ enum SWShortcutURL:OpenEnableURL
             case Root
             case About
             case Date
+            case Accessibility
             
             var URL:String{
                 switch self {
                 case Root: return "prefs:root=General"
-                case About: return "\(General.Root.URL)&path=About"
-                case Date: return "\(General.Root.URL)&path=DATE_AND_TIME"
+                case About: return "\(Root.URL)&path=About"
+                case Date: return "\(Root.URL)&path=DATE_AND_TIME"
+                case Accessibility: return "\(Root.URL)&path=ACCESSIBILITY"
                 }
             }
+            
+            var name:String{
+                switch self {
+                case Root: return "通用"
+                case Accessibility: return "辅助功能"
+                default: return rawValue
+                }
+            }
+            
         }
         
         /** Privacy **/
@@ -107,10 +118,6 @@ enum SWShortcutURL:OpenEnableURL
             default: return ""
             }
         }
-
-//        var name:String{
-//         return self.rawValue
-//        }
     }
     
     case PhoneCall(number:String)
@@ -127,6 +134,14 @@ enum SWShortcutURL:OpenEnableURL
         }
     }
     
+    var name:String{
+        switch self {
+        case PhoneCall(let number): return "拨打\(number)"
+        case SMS(let number): return "发短信到\(number)"
+        case Mail(let addressee): return "发邮件到\(addressee)"
+        case Safari(let url): return "Safari中打开\(url)"
+        }
+    }
     
     
     //let shortURL = "app-settings:"

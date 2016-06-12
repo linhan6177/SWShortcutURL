@@ -31,6 +31,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         _items.append(SWShortcutURL.Setting.Bluetooth)
         _items.append(SWShortcutURL.Setting.Photos)
         _items.append(SWShortcutURL.Setting.Notification)
+        
         _items.append(SWShortcutURL.Setting.General.Root)
         _items.append(SWShortcutURL.Setting.General.About)
         _items.append(SWShortcutURL.Setting.General.Date)
@@ -50,7 +51,6 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         _items.append(SWShortcutURL.Mail(addressee: "lwc6177@qq.com"))
         
         //蜂窝设置 prefs:root=MOBILE_DATA_SETTINGS_ID
-        //辅助功能 prefs:root=General&path=ACCESSIBILITY
         //自动锁屏时间 prefs:root=General&path=AUTOLOCK
         //用量 prefs:root=General&path=USAGE
         //Facetime设置 prefs:root=FACETIME
